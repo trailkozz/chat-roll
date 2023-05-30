@@ -12,28 +12,19 @@
   </head>
 
   <body>
-    <div class="container">
-      <header>
-        <h1>Chat App</h1>
-
-        <a href="/">Home</a>
-        <a href="/about.html">About Author</a>
-        <a href="/project.html">About project</a>
-      </header>
-    </div>
-
     <div class="chat col-md-12 col-xs-12">
-      <div id="sidebar" class="chat__sidebar"> </div>
+      <div id="sidebar" class="chat__sidebar"></div>
       <div class="chat__main">
         <div id="messages" class="chat__messages"></div>
         <!-- <div id="locations" class="chat__messages"></div> -->
 
         <div class="compose">
           <form id="user">
-            <input name="message" placeholder="Message" autocomplete="off"/>
+            <input name="message" placeholder="Message" autocomplete="off" />
             <button>Send</button>
           </form>
-          <button id="getLocation">Send location</button>
+          <button id="roll1d6">Roll 1d6</button>
+          <button id="roll3d6">Roll 3d6</button>
         </div>
       </div>
     </div>
@@ -48,13 +39,13 @@
       </div>
     </script>
 
-    <script id="location-template" type="text/html">
-      <div class="message">
+    <script id="roll-template" type="text/html">
+      <div class="rolld6">
         <p>
           <span class="message__name">{{username}}</span>
           <span class="message__meta">{{createdAt}}</span>
         </p>
-        <p><a href="{{loc}}" target="_blank">My current location</a></p>
+        <p>{{msg}}</p>
       </div>
     </script>
 
@@ -64,7 +55,7 @@
 
       <ul class="users">
         {{#users}}
-        <li> {{username}}</li>
+        <li>{{username}}</li>
         {{/users}}
       </ul>
     </script>
